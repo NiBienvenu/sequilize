@@ -1,8 +1,8 @@
 const { sign, verify } = require("jsonwebtoken");
 
-const createTokens = (contact) => {
+const createTokens = (user) => {
     const accessToken = sign(
-        { email: contact.email, id: contact.id },
+        { username: user.username, password: user.password },
         "jwtsecretplschange"
     );
 

@@ -15,6 +15,27 @@ const addUser = async (req, res) => {
   }
 };
 
+// login
+const login = async (req,res)=>{
+  const username = req.query.username
+  const password = req.query.password
+  console.log(username)
+  console.log(password)
+  try {
+    const user = await User.findOne({
+      where:{
+        username: username,
+        password: password
+      }
+    })
+    // console.log(user)
+    res.status(200).send(user);
+    
+  } catch (error) {
+    
+  }
+}
+
 // get all products
 const getAllUser = async (req, res) => {
 
@@ -53,4 +74,5 @@ module.exports = {
   getSingleUser,
   updateUser,
   deleteUser,
+  login,
 };
