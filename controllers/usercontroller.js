@@ -29,10 +29,15 @@ const login = async (req,res)=>{
       }
     })
     // console.log(user)
-    res.status(200).send(user);
+    // res.status(200).send(user);
+    if (user === null) {
+      res.status(200).send({"user":false});
+    } else {
+      res.status(200).send({"user":true,'info':user});
+    }
+   
     
   } catch (error) {
-    
   }
 }
 

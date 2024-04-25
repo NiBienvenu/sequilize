@@ -20,6 +20,7 @@ const Message = require('../models/message')
 const addContact = async (req, res) => {
   console.log('pas try arrive')
   let info = req.body
+  console.log(info)
  
   try {
     console.log('try arrive')
