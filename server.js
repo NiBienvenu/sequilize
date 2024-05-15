@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 
+const ip = require("ip");
+
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -33,4 +35,5 @@ const port = process.env.port || 8081
 
 app.listen(port, () => {
    console.log(`le serveur utilise le port ${port}`)
+   console.log(`${(process.env.NODE_ENV)} - Server is running on : http://${ip.address()}:${port}/`);
 })
